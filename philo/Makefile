@@ -6,15 +6,15 @@
 #    By: anajmi <anajmi@student.1337.ma>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/03/29 16:21:14 by anajmi            #+#    #+#              #
-#    Updated: 2022/04/04 15:16:11 by anajmi           ###   ########.fr        #
+#    Updated: 2022/04/13 01:04:59 by anajmi           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = philo
 
-CFLAGS = -Wall -Werror -Wextra
+# CFLAGS = -Wall -Werror -Wextra
 
-SOURCE = *.c
+SOURCE = ft_atoi.c philo.c
 
 OBJS = $(SOURCE:.c=.o)
 
@@ -31,7 +31,7 @@ C_RES = \033[0m
 all : $(NAME)
 
 $(NAME) : $(OBJS)
-	@gcc $(CFLAGS) $(OBJS) -o $(NAME)
+	@gcc $(CFLAGS) -lpthread $(OBJS) -o $(NAME)
 	@echo "$(C_GREEN)[PHILOSOPHERS MANDATORY CREATED!]$(C_RES)"
 
 clean :
