@@ -6,7 +6,7 @@
 #    By: anajmi <anajmi@student.1337.ma>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/03/29 16:21:14 by anajmi            #+#    #+#              #
-#    Updated: 2022/04/13 01:04:59 by anajmi           ###   ########.fr        #
+#    Updated: 2022/04/14 00:48:47 by anajmi           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -31,7 +31,7 @@ C_RES = \033[0m
 all : $(NAME)
 
 $(NAME) : $(OBJS)
-	@gcc $(CFLAGS) -lpthread $(OBJS) -o $(NAME)
+	@gcc $(CFLAGS) -lpthread $(OBJS) -o $(NAME) -fsanitize=address
 	@echo "$(C_GREEN)[PHILOSOPHERS MANDATORY CREATED!]$(C_RES)"
 
 clean :

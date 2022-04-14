@@ -6,7 +6,7 @@
 /*   By: anajmi <anajmi@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/29 16:35:17 by anajmi            #+#    #+#             */
-/*   Updated: 2022/04/13 01:03:36 by anajmi           ###   ########.fr       */
+/*   Updated: 2022/04/13 22:55:38 by anajmi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,17 @@
 # include <pthread.h>
 # include <sys/time.h>
 
+# define C_CYAN "\033[1;36m"
+# define C_BLUE "\033[1;34m"
+# define C_GREEN "\033[1;32m"
+# define C_YELOW "\033[1;33m"
+# define C_RED "\033[1;31m"
+
+# define TFORK "has taken a fork"
+# define ISEAT "is eating"
+# define ISLEP "is sleeping"
+# define ISTHI "is thinking"
+# define DIE "died"
 /*
 number_of_philosophers
 time_to_die
@@ -45,6 +56,7 @@ typedef struct s_profile
 	pthread_mutex_t	*lfork;
 	t_data			*data;
 	size_t			id;
+	size_t			last_eat;
 }				t_profile;
 
 #endif
