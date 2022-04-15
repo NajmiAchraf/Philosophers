@@ -6,7 +6,7 @@
 /*   By: anajmi <anajmi@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/29 16:35:17 by anajmi            #+#    #+#             */
-/*   Updated: 2022/04/15 00:46:48 by anajmi           ###   ########.fr       */
+/*   Updated: 2022/04/15 01:45:40 by anajmi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,7 +56,6 @@ typedef struct s_profile
 	int				nbr_to_eat;
 	size_t			id;
 	size_t			last_eat;
-	size_t			is_eat;
 	size_t			is_die;
 }				t_profile;
 

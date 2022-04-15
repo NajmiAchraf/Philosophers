@@ -6,7 +6,7 @@
 /*   By: anajmi <anajmi@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/29 16:33:35 by anajmi            #+#    #+#             */
-/*   Updated: 2022/04/15 00:17:49 by anajmi           ###   ########.fr       */
+/*   Updated: 2022/04/15 01:45:36 by anajmi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,7 +51,6 @@ static int	distribute(t_profile *profile, t_data *data)
 			profile[i].nbr_to_eat = -1;
 		profile[i].id = i + 1;
 		profile[i].last_eat = 0;
-		profile[i].is_eat = 0;
 		profile[i].is_die = 0;
 	}
 	return (1);

@@ -6,7 +6,7 @@
 /*   By: anajmi <anajmi@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/15 00:15:20 by anajmi            #+#    #+#             */
-/*   Updated: 2022/04/15 00:15:49 by anajmi           ###   ########.fr       */
+/*   Updated: 2022/04/15 01:42:42 by anajmi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,8 +34,7 @@ void	*visor(void *param)
 		{
 			if (timing() - profile[i].last_eat >= profile[0].data->tdie
 				&& -1 <= profile[i].nbr_to_eat
-				&& profile[i].nbr_to_eat < profile->data->nbr_to_eat
-				&& !profile->is_eat)
+				&& profile[i].nbr_to_eat < profile->data->nbr_to_eat)
 			{
 				profile[i].is_die = 1;
 				printing(&profile[i], C_RED, DIE);
@@ -55,18 +54,16 @@ void	*race(void	*param)
 
 	profile = (t_profile *)param;
 	if (profile->id % 2 == 0)
-		msleep(10);
+		usleep(100);
 	while (1)
 	{
 		pthread_mutex_lock(profile->rfork);
 		printing(profile, C_CYAN, TFORK);
 		pthread_mutex_lock(profile->lfork);
 		printing(profile, C_CYAN, TFORK);
-		printing(profile, C_BLUE, ISEAT);
-		profile->is_eat = 1;
-		msleep(profile->data->teat);
 		profile->last_eat = timing();
-		profile->is_eat = 0;
+		printing(profile, C_BLUE, ISEAT);
+		msleep(profile->data->teat);
 		pthread_mutex_unlock(profile->rfork);
 		pthread_mutex_unlock(profile->lfork);
 		if (-1 < profile->nbr_to_eat)
