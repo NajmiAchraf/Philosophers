@@ -6,7 +6,7 @@
 /*   By: anajmi <anajmi@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/29 16:35:17 by anajmi            #+#    #+#             */
-/*   Updated: 2022/04/15 00:17:32 by anajmi           ###   ########.fr       */
+/*   Updated: 2022/04/15 00:46:48 by anajmi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,19 +35,6 @@
 # define ISTHI "is thinking"
 # define DIE "died"
 
-int		arg_check(int ac, char **av);
-int		ft_isdigit(int c);
-int		ft_atoi(const char *str);
-size_t	ft_strlen(const char *s);
-
-size_t	get_time(void);
-size_t	timing(void);
-void	msleep(size_t time);
-
-void	printing(t_profile *profile, char *color, char *str);
-void	*visor(void *param);
-void	*race(void	*param);
-
 typedef struct s_data
 {
 	size_t			nb_philo;
@@ -72,5 +59,18 @@ typedef struct s_profile
 	size_t			is_eat;
 	size_t			is_die;
 }				t_profile;
+
+int		arg_check(int ac, char **av);
+int		ft_isdigit(int c);
+int		ft_atoi(const char *str);
+size_t	ft_strlen(const char *s);
+
+size_t	get_time(void);
+size_t	timing(void);
+void	msleep(size_t time);
+
+void	printing(t_profile *profile, char *color, char *str);
+void	*visor(void *param);
+void	*race(void	*param);
 
 #endif
