@@ -6,15 +6,22 @@
 #    By: anajmi <anajmi@student.1337.ma>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/03/29 16:21:14 by anajmi            #+#    #+#              #
-#    Updated: 2022/04/14 00:48:47 by anajmi           ###   ########.fr        #
+#    Updated: 2022/04/15 00:18:50 by anajmi           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = philo
 
-# CFLAGS = -Wall -Werror -Wextra
+CFLAGS = -Wall -Werror -Wextra
 
-SOURCE = ft_atoi.c philo.c
+SOURCE = \
+		./source/checking.c			\
+		./source/core.c				\
+		./source/ft_atoi.c			\
+		./source/ft_isdigit.c		\
+		./source/ft_strlen.c		\
+		./source/philo.c			\
+		./source/time.c
 
 OBJS = $(SOURCE:.c=.o)
 
@@ -31,7 +38,7 @@ C_RES = \033[0m
 all : $(NAME)
 
 $(NAME) : $(OBJS)
-	@gcc $(CFLAGS) -lpthread $(OBJS) -o $(NAME) -fsanitize=address
+	@gcc $(CFLAGS) -lpthread -I/include/philo.h $(OBJS) -o $(NAME)
 	@echo "$(C_GREEN)[PHILOSOPHERS MANDATORY CREATED!]$(C_RES)"
 
 clean :

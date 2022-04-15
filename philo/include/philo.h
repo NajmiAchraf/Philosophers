@@ -6,7 +6,7 @@
 /*   By: anajmi <anajmi@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/29 16:35:17 by anajmi            #+#    #+#             */
-/*   Updated: 2022/04/13 22:55:38 by anajmi           ###   ########.fr       */
+/*   Updated: 2022/04/15 00:17:32 by anajmi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,9 @@
 # include <pthread.h>
 # include <sys/time.h>
 
+# define MAXINT	2147483647
+# define MININT	-2147483648
+
 # define C_CYAN "\033[1;36m"
 # define C_BLUE "\033[1;34m"
 # define C_GREEN "\033[1;32m"
@@ -31,21 +34,28 @@
 # define ISLEP "is sleeping"
 # define ISTHI "is thinking"
 # define DIE "died"
-/*
-number_of_philosophers
-time_to_die
-time_to_eat
-time_to_sleep 
-[number_of_times_each_philosopher_must_eat]
-*/
-int	ft_atoi(const char *str);
+
+int		arg_check(int ac, char **av);
+int		ft_isdigit(int c);
+int		ft_atoi(const char *str);
+size_t	ft_strlen(const char *s);
+
+size_t	get_time(void);
+size_t	timing(void);
+void	msleep(size_t time);
+
+void	printing(t_profile *profile, char *color, char *str);
+void	*visor(void *param);
+void	*race(void	*param);
+
 typedef struct s_data
 {
 	size_t			nb_philo;
 	size_t			tdie;
 	size_t			teat;
 	size_t			tsleep;
-	size_t			nb_teat;
+	int				nbr_to_eat;
+	pthread_mutex_t	mutex_print;
 }				t_data;
 
 typedef struct s_profile
@@ -54,9 +64,13 @@ typedef struct s_profile
 	pthread_mutex_t	fork;
 	pthread_mutex_t	*rfork;
 	pthread_mutex_t	*lfork;
+	pthread_mutex_t	*mutex_print;
 	t_data			*data;
+	int				nbr_to_eat;
 	size_t			id;
 	size_t			last_eat;
+	size_t			is_eat;
+	size_t			is_die;
 }				t_profile;
 
 #endif

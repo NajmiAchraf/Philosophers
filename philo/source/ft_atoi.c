@@ -6,17 +6,17 @@
 /*   By: anajmi <anajmi@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/02 10:52:01 by anajmi            #+#    #+#             */
-/*   Updated: 2022/04/13 01:06:26 by anajmi           ###   ########.fr       */
+/*   Updated: 2022/04/15 00:14:16 by anajmi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "./include/philo.h"
+#include "philo.h"
 
 int	check_nbr(long nbr, int sign)
 {
-	if (sign * nbr > INT32_MAX)
+	if (sign * nbr > MAXINT)
 		return (-1);
-	else if (sign * nbr < INT32_MIN)
+	else if (sign * nbr < MININT)
 		return (0);
 	return (1);
 }
@@ -48,18 +48,3 @@ int	ft_atoi(const char *str)
 	}
 	return (nbr * sign);
 }
-/*
-int	main(void)
-{
-	int		val;
-	char 	str[] = "9223372036854775807";
-	// char 	str[] = "9223372036854775807";
-	// char 	str[] = "4294967299";
-
-	val = ft_atoi(str);
-	printf("String value = %s, Int value = %d\n", str, val);
-	val = atoi(str);
-	printf("String value = %s, Int value = %d\n", str, val);
-	return (0);
-}
-*/
